@@ -1,7 +1,48 @@
-/*
- * Empty Stylesheet file.
- */
+.top-bar {
+    -fx-background-color: #222;
+    -fx-padding: 10px;
+}
 
-.mainFxmlClass {
+.title-label {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
 
+.product-card {
+    -fx-background-color: #f9f9f9;
+    -fx-padding: 10px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0.3, 2, 2);
+    -fx-pref-width: 160px;
+}
+
+.product-name {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.product-price {
+    -fx-text-fill: #27ae60;
+    -fx-font-size: 13px;
+}
+
+.buy-button {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+    -fx-font-size: 12px;
+}
+
+.buy-button:hover {
+    -fx-background-color: #2ecc71;
+}
+
+.carrito-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6px;
+    -fx-padding: 8px 12px;
 }
