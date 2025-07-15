@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="602.0" prefWidth="1238.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kevinramirez.controller.MenuPrincipalController">
+   <center>
+      <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="417.0" styleClass="mainFxmlClass">
+          <stylesheets>
+              <URL value="@/styles/menuprincipalview.css" />
+          </stylesheets>
+         <children>
+            <VBox alignment="TOP_CENTER" layoutX="262.0" layoutY="37.0" prefHeight="301.0" prefWidth="176.0" spacing="10.0">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <children>
+                  <Label text="Carrito" />
+                  <ListView prefHeight="400.0" prefWidth="400.0" />
+                  <Label text="Total a pagar" />
+                  <Label text="Q. 00" />
+                  <Button mnemonicParsing="false" text="Confirmar Pedido" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <Label prefHeight="52.0" prefWidth="116.0" text="Menu del dia" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <ScrollPane prefHeight="200.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <VBox layoutX="14.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding></VBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </left>
+</BorderPane>
