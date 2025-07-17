@@ -8,17 +8,14 @@ package org.kevinramirez.model;
 public class Comida {
     
     private int idComida;
-    private String nombreComida;  // nombre del platillo
-    private String tipo;          // tipo de comida (por ejemplo: "principal", "entrada", "bebida")
-    private String nombreBebida;  // nombre de bebida asociada o separada
-    private double precio;
+    private String tipoComida, nombreComida;
+    private double precioComida;
 
-    public Comida(int idComida, String nombreComida, String tipo, String nombreBebida, double precio) {
+    public Comida(int idComida, String nombreComida, String tipoComida, double precioComida) {
         this.idComida = idComida;
         this.nombreComida = nombreComida;
-        this.tipo = tipo;
-        this.nombreBebida = nombreBebida;
-        this.precio = precio;
+        this.tipoComida = tipoComida;
+        this.precioComida = precioComida;
     }
 
     public int getIdComida() {
@@ -29,22 +26,34 @@ public class Comida {
         return nombreComida;
     }
 
-    public String getTipo() {
-        return tipo;
+    public void setNombreComida(String nombreComida) {
+        this.nombreComida = nombreComida;
     }
 
-    public String getNombreBebida() {
-        return nombreBebida;
+    
+    public String getTipoComida() {
+        return tipoComida;
     }
 
-    public double getPrecio() {
-        return precio;
+    public double getPrecioComida() {
+        return precioComida;
     }
 
+    public void setIdComida(int idComida) {
+        this.idComida = idComida;
+    }
+
+    public void setTipoComida(String tipoComida) {
+        this.tipoComida = tipoComida;
+    }
+
+    public void setPrecioComida(double precioComida) {
+        this.precioComida = precioComida;
+    }
+
+    
     @Override
     public String toString() {
-        // Aquí puedes decidir qué mostrar en el ListView; por ejemplo:
-        String bebidaTexto = (nombreBebida == null || nombreBebida.isEmpty()) ? "" : " + Bebida: " + nombreBebida;
-        return nombreComida + bebidaTexto + " - Q" + precio;
+        return nombreComida + " - Q" + precioComida;
     }
 }

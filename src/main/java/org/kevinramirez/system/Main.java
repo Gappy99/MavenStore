@@ -6,6 +6,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.kevinramirez.controller.InicioController;
 import org.kevinramirez.controller.LoginController;
+import org.kevinramirez.controller.MenuPrincipalController;
+import org.kevinramirez.controller.PedidoController;
 import org.kevinramirez.controller.RegistroController;
 
 public class Main extends Application {
@@ -15,7 +17,9 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         this.escenarioPrincipal = stage;
-        mostrarLogin();
+       mostrarPedidos();
+        //mostrarMenuPrincipal();
+        // mostrarLogin();
     }
 
     public void mostrarLogin() {
@@ -72,5 +76,41 @@ public class Main extends Application {
         }
     
     }
+    
+    public void mostrarMenuPrincipal() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/MenuPrincipalView.fxml"));
+            Scene escena = new Scene(loader.load());
+            escenarioPrincipal.setScene(escena);
+            escenarioPrincipal.setTitle("Registrarse ");
+            escenarioPrincipal.show();
+
+            // Comunicación con el controlador de Inicio
+            MenuPrincipalController controlador = loader.getController();
+            controlador.setPrincipal(this);
+
+        } catch (Exception e) {
+            System.err.println("Error al cargar la vista RegistroView.fxml:");
+            e.printStackTrace();
+        }
+    }
+        
+    public void mostrarPedidos() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/PedidoView.fxml"));
+            Scene escena = new Scene(loader.load());
+            escenarioPrincipal.setScene(escena);
+            escenarioPrincipal.setTitle("Registrarse ");
+            escenarioPrincipal.show();
+
+            // Comunicación con el controlador de Inicio
+            PedidoController controlador = loader.getController();
+            controlador.setPrincipal(this);
+
+        } catch (Exception e) {
+            System.err.println("Error al cargar la vista PedidoView.fxml:");
+            e.printStackTrace();
+        }
+    }
     // Agrega métodos similares para cambiar a otras vistas si lo deseas
-}
+} //clean javafx:run

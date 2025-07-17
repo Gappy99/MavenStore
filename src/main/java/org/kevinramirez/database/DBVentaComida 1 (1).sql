@@ -24,15 +24,23 @@ create table Empleados (
     constraint pk_empleado primary key (idEmpleado)
 ); 
 
+-- Tabla Comidas
 create table Comidas (
-	idComida int auto_increment, 
+    idComida int auto_increment, 
     nombreComida varchar(250), 
     tipo varchar(100),
-    nombreBebida varchar(250),
     precio decimal(6,2),
-    ingredientes varchar(150),
     constraint pk_comida primary key (idComida)
-); 
+);
+
+-- Tabla Bebidas
+create table Bebidas (
+    idBebida int auto_increment,
+    nombreBebida varchar(250),
+    tipo varchar(100),
+    precio decimal(6,2),
+    constraint pk_bebida primary key (idBebida)
+);
 
 create table Pedidos (
 	idPedido int auto_increment, 
@@ -49,11 +57,13 @@ create table Pedidos (
 create table DetallePedido (
 	idDetalle int auto_increment, 
     idPedido int, 
-    idComida int, 
+    idComida int,  
+    idBebida int,
     cantidad int,
     constraint pk_detalle primary key (idDetalle),
     constraint fk_detalle_pedido foreign key (idPedido) references Pedidos(idPedido),
-    constraint fk_detalle_comida foreign key (idComida) references Comidas(idComida)
+     constraint fk_detalle_comida foreign key (idComida) references Comidas(idComida),
+    constraint fk_detalle_bebida foreign key (idBebida) references Bebidas(idBebida)
 ); 
 
 
@@ -170,52 +180,97 @@ delimiter ;
 -- CRUD de Comidas
 delimiter $$
 create procedure sp_agregarComida(
-	in p_nombreComida varchar(250),
-	in p_tipo varchar(100),
-	in p_nombreBebida varchar(250),
-	in p_precio decimal(6,2)
-)
-begin
-	insert into Comidas(nombreComida, tipo, nombreBebida, precio)
-	values(p_nombreComida, p_tipo, p_nombreBebida, p_precio);
-end$$
+    in p_nombreComida varchar(250),
+    in p_tipo varchar(100),
+    in p_precio decimal(6,2)
+	)
+		begin
+			insert into Comidas(nombreComida, tipo, precio)
+			values(p_nombreComida, p_tipo, p_precio);
+		end$$
 delimiter ;
 
 delimiter $$
 create procedure sp_actualizarComida(
-	in p_idComida int,
-	in p_nombreComida varchar(250),
-	in p_tipo varchar(100),
-	in p_nombreBebida varchar(250),
-	in p_precio decimal(6,2)
+    in p_idComida int,
+    in p_nombreComida varchar(250),
+    in p_tipo varchar(100),
+    in p_precio decimal(6,2)
 )
 begin
-	update Comidas
-	set nombreComida = p_nombreComida,
-		tipo = p_tipo,
-		nombreBebida = p_nombreBebida,
-		precio = p_precio
-	where idComida = p_idComida;
+    update Comidas
+    set nombreComida = p_nombreComida,
+        tipo = p_tipo,
+        precio = p_precio
+    where idComida = p_idComida;
 end$$
 delimiter ;
 
 delimiter $$
 create procedure sp_eliminarComida(in p_idComida int)
 begin
-	delete from Comidas where idComida = p_idComida;
+    delete from Comidas where idComida = p_idComida;
 end$$
 delimiter ;
 
 delimiter $$
 create procedure sp_listarComidas()
 begin
-	select
-		idComida as ID,
-		nombreComida as COMIDA,
-		tipo as TIPO,
-		nombreBebida as BEBIDA,
-		precio as PRECIO
-	from Comidas;
+    select
+        idComida as ID,
+        nombreComida as COMIDA,
+        tipo as TIPO,
+        precio as PRECIO
+    from Comidas;
+end$$
+delimiter ;
+
+-- Procedimientos para Bebidas
+delimiter $$
+create procedure sp_agregarBebida(
+    in p_nombreBebida varchar(250),
+    in p_tipo varchar(100),
+    in p_precio decimal(6,2)
+)
+begin
+    insert into Bebidas(nombreBebida, tipo, precio)
+    values(p_nombreBebida, p_tipo, p_precio);
+end$$
+delimiter ;
+
+delimiter $$
+create procedure sp_actualizarBebida(
+    in p_idBebida int,
+    in p_nombreBebida varchar(250),
+    in p_tipo varchar(100),
+    in p_precio decimal(6,2)
+	)
+		begin
+			update Bebidas
+			set nombreBebida = p_nombreBebida,
+				tipo = p_tipo,
+				precio = p_precio,
+				ingredientes = p_ingredientes
+			where idBebida = p_idBebida;
+		end$$
+	delimiter ;
+
+delimiter $$
+create procedure sp_eliminarBebida(in p_idBebida int)
+begin
+    delete from Bebidas where idBebida = p_idBebida;
+end$$
+delimiter ;
+
+delimiter $$
+create procedure sp_listarBebidas()
+begin
+    select
+        idBebida as ID,
+        nombreBebida as BEBIDA,
+        tipo as TIPO,
+        precio as PRECIO
+    from Bebidas;
 end$$
 delimiter ;
 
@@ -265,13 +320,15 @@ delimiter $$
 create procedure sp_listarPedidos()
 begin
 	select
-		idPedido as ID,
-		idCliente as CLIENTE,
-		idEmpleado as EMPLEADO,
-		fechaPedido as FECHA,
-		metodoPago as PAGO,
-		estadoFactura as ESTADO
-	from Pedidos;
+		p.idPedido as ID,
+		p.idCliente as CLIENTE,
+		p.idEmpleado as EMPLEADO,
+		p.fechaPedido as FECHA,
+		p.metodoPago as PAGO,
+		p.estadoFactura as ESTADO
+	from Pedidos p 
+    join Clientes c on p.idCliente = c.idCliente
+    join Empleados e on p.idEmpleado = e.idEmpleado; 
 end$$
 delimiter ;
 
@@ -282,11 +339,12 @@ delimiter $$
 create procedure sp_agregarDetallePedido(
 	in p_idPedido int,
 	in p_idComida int,
+    in p_idBebida int, 
 	in p_cantidad int
 )
 begin
-	insert into DetallePedido(idPedido, idComida, cantidad)
-	values(p_idPedido, p_idComida, p_cantidad);
+	insert into DetallePedido(idPedido, idComida, idBebida, cantidad)
+	values(p_idPedido, p_idComida, p_idBebida, p_cantidad);
 end$$
 delimiter ;
 
@@ -295,12 +353,14 @@ create procedure sp_actualizarDetallePedido(
 	in p_idDetalle int,
 	in p_idPedido int,
 	in p_idComida int,
+    in p_ideBebida int, 
 	in p_cantidad int
 )
 begin
 	update DetallePedido
 	set idPedido = p_idPedido,
 		idComida = p_idComida,
+        idBebida = p_idBebida, 
 		cantidad = p_cantidad
 	where idDetalle = p_idDetalle;
 end$$
@@ -320,6 +380,7 @@ begin
 		idDetalle as ID,
 		idPedido as PEDIDO,
 		idComida as COMIDA,
+        idBebida as BEBIDA, 
 		cantidad as CANTIDAD
 	from DetallePedido;
 end$$
@@ -340,4 +401,25 @@ DELIMITER ;
 call sp_agregarCliente('Carlos', 'Pérez', '1234567', 'carlos.perez@email.com', '1234', '5555-0001');
 call sp_agregarCliente('María', 'López', '9876543', 'maria.lopez@email.com', 'abcd', '5555-0002');
 
+CALL sp_agregarEmpleado('Luis', 'Pérez', 'Cajero', '5555-1122', 'luis.perez@restaurante.com', 3200.00);
+CALL sp_agregarEmpleado('María', 'González', 'Mesera', '5555-2233', 'maria.gonzalez@restaurante.com', 2900.00);
+
 call sp_listarClientes();
+
+CALL sp_agregarComida('Hamburguesa Clásica', 'Principal', 50);
+CALL sp_agregarComida('Ensalada César', 'Entrada', 30);
+CALL sp_agregarComida('Pizza Pepperoni', 'Principal', 60);
+CALL sp_agregarComida('Sopa de Pollo', 'Entrada', 55.50);
+CALL sp_agregarComida('Papas Fritas', 'Acompañamiento', 25);
+Call sp_agregarBebida('cafe','Caliente',15);
+Call sp_agregarBebida('Licuado de fresa','Frio',22.50);
+Call sp_agregarBebida('Limonada','frio',18);
+Call sp_agregarBebida('capuchino','caliente',23.50);
+ 
+call sp_listarBebidas(); 
+Call sp_listarComidas(); 
+
+CALL sp_agregarPedido(1, 2, '2025-07-17 13:45:00', 'Efectivo', 'Pagado');
+CALL sp_agregarPedido(2, 1, '2025-07-17 14:10:00', 'Tarjeta', 'Pendiente');
+call sp_listarEmpleados();
+call sp_listarPedidos();

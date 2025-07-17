@@ -3,32 +3,37 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="602.0" prefWidth="1238.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kevinramirez.controller.MenuPrincipalController">
+<BorderPane prefHeight="602.0" prefWidth="1162.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kevinramirez.controller.MenuPrincipalController">
    <center>
-      <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="417.0" styleClass="mainFxmlClass">
+      <AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="442.0" styleClass="mainFxmlClass">
           <stylesheets>
               <URL value="@/styles/menuprincipalview.css" />
           </stylesheets>
          <children>
-            <VBox alignment="TOP_CENTER" layoutX="262.0" layoutY="37.0" prefHeight="301.0" prefWidth="176.0" spacing="10.0">
+            <VBox alignment="TOP_CENTER" layoutX="43.0" layoutY="48.0" prefHeight="402.0" prefWidth="368.0" spacing="10.0">
                <padding>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </padding>
                <children>
                   <Label text="Carrito" />
-                  <ListView prefHeight="400.0" prefWidth="400.0" />
+                  <ListView fx:id="listCarrito" prefHeight="400.0" prefWidth="400.0" />
                   <Label text="Total a pagar" />
-                  <Label text="Q. 00" />
-                  <Button mnemonicParsing="false" text="Confirmar Pedido" />
+                  <Label fx:id="lblTotal" text="Q. 00" />
+                  <Button mnemonicParsing="false" onAction="#realizarPedido" text="Realizar Pedido" />
+                  <ComboBox fx:id="cmbEmpleado" prefHeight="26.0" prefWidth="174.0" promptText="Seleccionar Empleado" />
                </children>
             </VBox>
+            <TextField fx:id="txtIdCliente" layoutX="153.0" layoutY="444.0" prefHeight="26.0" prefWidth="157.0" />
          </children>
       </AnchorPane>
    </center>
@@ -36,14 +41,38 @@
       <Label prefHeight="52.0" prefWidth="116.0" text="Menu del dia" BorderPane.alignment="CENTER" />
    </top>
    <left>
-      <ScrollPane prefHeight="200.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+      <ScrollPane prefHeight="550.0" prefWidth="708.0" BorderPane.alignment="CENTER">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="547.0" prefWidth="643.0">
                <children>
-                  <VBox layoutX="14.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                  <VBox layoutX="165.0" prefHeight="532.0" prefWidth="418.0" spacing="10.0">
                      <padding>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </padding></VBox>
+                     </padding>
+                     <children>
+                        <Label text="Menú del dia" />
+                        <ListView fx:id="listComidas" prefHeight="156.0" prefWidth="378.0" />
+                        <Label text="Bebidas" />
+                        <ListView fx:id="listBebidas" prefHeight="145.0" prefWidth="378.0" />
+                        <HBox prefHeight="124.0" prefWidth="378.0" spacing="30.0">
+                           <children>
+                              <Label text="Tipo" />
+                              <Label text="Precio" />
+                              <VBox prefHeight="121.0" prefWidth="68.0">
+                                 <children>
+                                    <Label fx:id="lblTipo" text="Tipo" />
+                                    <Label fx:id="lblPrecio" text="Precio" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="121.0" prefWidth="127.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#agregarAlCarrito" text="Agregar al Carrito" />
+                                    <Button mnemonicParsing="false" onAction="#eliminarDelCarrito" text="Eliminar del carrito" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children></VBox>
                </children>
             </AnchorPane>
         </content>
