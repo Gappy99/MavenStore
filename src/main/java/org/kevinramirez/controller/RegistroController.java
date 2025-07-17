@@ -56,7 +56,7 @@ public class RegistroController implements Initializable {
         
         try {
             Connection conn = Conexion.getInstancia().getConexion();
-            CallableStatement cs = conn.prepareCall("{call sp_agregarCliente(?, ?, ?, ?, ?)}");
+            CallableStatement cs = conn.prepareCall("{call sp_agregarCliente(?, ?, ?, ?, ?, ?)}");
             cs.setString(1, nombre);
             cs.setString(2, apellido);
             cs.setString(3, nit);

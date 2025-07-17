@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.kevinramirez.controller.DetallePedidoController;
 import org.kevinramirez.controller.InicioController;
 import org.kevinramirez.controller.LoginController;
 import org.kevinramirez.controller.MenuPrincipalController;
@@ -17,9 +18,10 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         this.escenarioPrincipal = stage;
-       mostrarPedidos();
-        //mostrarMenuPrincipal();
-        // mostrarLogin();
+        mostrarDetallePedidos();
+        // mostrarPedidos();
+        // mostrarMenuPrincipal();
+        mostrarLogin();
     }
 
     public void mostrarLogin() {
@@ -109,6 +111,24 @@ public class Main extends Application {
 
         } catch (Exception e) {
             System.err.println("Error al cargar la vista PedidoView.fxml:");
+            e.printStackTrace();
+        }
+    }
+    
+    public void mostrarDetallePedidos() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DetallePedidoView.fxml"));
+            Scene escena = new Scene(loader.load());
+            escenarioPrincipal.setScene(escena);
+            escenarioPrincipal.setTitle("Registrarse ");
+            escenarioPrincipal.show();
+
+            // Comunicación con el controlador de Inicio
+            DetallePedidoController controlador = loader.getController();
+            controlador.setPrincipal(this);
+
+        } catch (Exception e) {
+            System.err.println("Error al cargar la vista DetallePedidosView.fxml:");
             e.printStackTrace();
         }
     }

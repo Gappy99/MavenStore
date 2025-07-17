@@ -60,7 +60,7 @@ public class InicioController implements Initializable {
 
             if (resultado.next()) {
                 // Acceso exitoso
-               // principal.mostrarMenuPrincipal();
+               principal.mostrarMenuPrincipal();
             } else {
                 mostrarAlerta("Acceso Denegado", "Correo o contraseña incorrectos.");
             }

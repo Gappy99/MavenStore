@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="728.0" prefWidth="937.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.kevinramirez.controller.DetallePedidoController">
+    <stylesheets>
+        <URL value="@/styles/detallepedidoview.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="tablaDetallePedido" layoutX="168.0" layoutY="75.0" prefHeight="485.0" prefWidth="651.0">
+        <columns>
+          <TableColumn fx:id="colIdDetalle" prefWidth="75.0" text="DetallePedido" />
+          <TableColumn fx:id="colIdPedido" prefWidth="75.0" text="Pedido" />
+            <TableColumn fx:id="colIdComida" prefWidth="75.0" text="Comida" />
+            <TableColumn fx:id="colIdBebida" prefWidth="75.0" text="Bebida" />
+            <TableColumn fx:id="colCantidad" prefWidth="75.0" text="cantidad" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

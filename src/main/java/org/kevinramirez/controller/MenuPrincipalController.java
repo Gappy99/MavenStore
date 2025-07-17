@@ -162,6 +162,7 @@ public class MenuPrincipalController implements Initializable {
     @FXML
     private void realizarPedido() {
         // Aquí la lógica para insertar el pedido en la base de datos,
+                
         // incluyendo el detalle de cada ítem en el carrito (comida y bebida).
         // Este paso lo podemos hacer juntos cuando quieras.
 
@@ -170,6 +171,17 @@ public class MenuPrincipalController implements Initializable {
         total = 0.0;
         lblTotal.setText("$0.00");
     }
-
+    
+    /*
+    @FXML private void pedidos(){
+        int idCliente = obtenerIdClienteSeleccionado();
+        int idEmpleado = obtenerIdEmpleado();
+        
+        if (idCliente > 0 && idEmpleado > 0) {
+            realizarPedido(idCliente, idEmpleado); 
+        } else {
+            System.out.println("Cliente o empleado no valido");
+        }
+    }*/
 }
     
