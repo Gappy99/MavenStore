@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.RadioButton;
 import org.kevinramirez.database.Conexion;
 import org.kevinramirez.model.Bebida;
 import org.kevinramirez.model.Cliente;
@@ -37,6 +38,9 @@ public class MenuPrincipalController implements Initializable {
     @FXML
     private ComboBox<Empleado> cmbEmpleado;
 
+    @FXML
+    private RadioButton rbEfectivo, rbTarjeta;
+    
     @FXML
     private Label lblTipo;
     @FXML
@@ -211,7 +215,8 @@ public class MenuPrincipalController implements Initializable {
             stmt.setInt(1, clienteActual.getIdCliente());
             stmt.setInt(2, empleadoSeleccionado.getIdEmpleado());
             stmt.setTimestamp(3, new java.sql.Timestamp(System.currentTimeMillis())); 
-            stmt.setString(4, "Efectivo");
+            String metodoPago = rbEfectivo.isSelected() ? "Efectivo" : "Tarjeta";
+            stmt.setString(4, metodoPago);
             stmt.setString(5, "Pagado");
 
             stmt.execute();

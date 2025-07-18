@@ -6,8 +6,9 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -31,9 +32,19 @@
                   <Label fx:id="lblTotal" text="Q. 00" />
                   <Button mnemonicParsing="false" onAction="#realizarPedido" text="Realizar Pedido" />
                   <ComboBox fx:id="cmbEmpleado" prefHeight="26.0" prefWidth="174.0" promptText="Seleccionar Empleado" />
+                  <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                     <children>
+                        <RadioButton fx:id="rbEfectivo" mnemonicParsing="false" selected="true" text="Efectivo">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="MetodoPago" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rbTarjeta" mnemonicParsing="false" text="Tarjeta" toggleGroup="$MetodoPago" />
+                        <!--<RadioButton fx:id="rbEfectivo" mnemonicParsing="false" selected="true" text="Tarjeta" toggleGroup="$MetodoPago" />-->
+                     </children>
+                  </HBox>
                </children>
             </VBox>
-            <TextField fx:id="txtIdCliente" layoutX="153.0" layoutY="444.0" prefHeight="26.0" prefWidth="157.0" />
          </children>
       </AnchorPane>
    </center>

@@ -34,14 +34,14 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         this.escenarioPrincipal = stage;
-        mostrarBebida();
+        //mostrarBebida();
         //mostrarComida();
         //mostrarClientes();
         // mostrarDetallePedidos();
         // mostrarEmpleados();
         // mostrarPedidos();
-        // mostrarMenuPrincipal();
-        // mostrarLogin();
+        //mostrarMenuPrincipal();
+        mostrarLogin();
     }
     
     
