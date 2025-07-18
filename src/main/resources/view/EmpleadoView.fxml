@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="670.0" prefWidth="1437.0" stylesheets="@../resource/empleadoview.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kevinramirez.controller.EmpleadoController">
+   <children>
+      <Label layoutX="530.0" layoutY="14.0" prefHeight="54.0" prefWidth="193.0" text="Empleado" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Line endX="128.79998779296875" endY="7.62939453125E-6" layoutX="604.0" layoutY="72.0" startX="-100.0" stroke="WHITE" />
+      <TableView fx:id="tablaEmpleado" layoutX="362.0" layoutY="238.0" prefHeight="416.0" prefWidth="1046.0" styleClass="tabla">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="71.20001220703125" text="Codigo" />
+          <TableColumn fx:id="colNombre" prefWidth="167.20004272460938" text="Nombre" />
+            <TableColumn fx:id="colApellido" prefWidth="173.60003662109375" text="Apellido" />
+            <TableColumn fx:id="colCargo" prefWidth="179.20001220703125" text="Cargo" />
+            <TableColumn fx:id="colTelefono" prefWidth="140.79998779296875" text="Telefono " />
+            <TableColumn fx:id="colCorreo" prefWidth="181.5999755859375" text="Correo" />
+            <TableColumn fx:id="colSueldo" prefWidth="181.5999755859375" text="Sueldo" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnCerrar" layoutX="24.0" layoutY="23.0" mnemonicParsing="false" onAction="#btnRegresarActionEvent" prefHeight="54.0" prefWidth="165.0" styleClass="buttonRegresar" text="Regresar">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtBuscar" layoutX="1044.0" layoutY="161.0" prefHeight="40.0" prefWidth="169.0" promptText="Buscar por nombre" />
+      <Button fx:id="btnBuscar" layoutX="916.0" layoutY="157.0" mnemonicParsing="false" onAction="#btnBuscarPorNombre" prefHeight="45.0" prefWidth="127.0" text="Buscar" />
+      <GridPane layoutX="24.0" layoutY="238.0" prefHeight="30.0" prefWidth="314.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="btnNuevo" mnemonicParsing="false" onAction="#cambiarNuevoEmpleado" styleClass="buttonFunciones" text="Nuevo" />
+            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#cambiarEdicionEmpleado" styleClass="buttonFunciones" text="Editar" GridPane.columnIndex="1" />
+            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#cambiarCancelarEliminarEmpleado" styleClass="buttonFunciones" text="Eliminar" GridPane.columnIndex="2" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="51.0" layoutY="293.0" prefHeight="254.0" prefWidth="234.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.2000732421875" minWidth="10.0" prefWidth="70.39996337890625" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="161.60003662109375" minWidth="10.0" prefWidth="161.60003662109375" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="CODIGO" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Label>
+            <Label text="NOMBRE" textFill="WHITE" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Label>
+            <Label text="APELLIDO" textFill="WHITE" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Label>
+            <Label text="CARGO" textFill="WHITE" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Label>
+            <Label text="TELEFONO" textFill="WHITE" GridPane.rowIndex="4">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Label>
+            <Label text="CORREO" textFill="WHITE" GridPane.rowIndex="5">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Label>
+            <TextField fx:id="txtId" GridPane.columnIndex="1" />
+            <TextField fx:id="txtNombre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtApellido" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtCargo" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtTelefono" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="txtCorreo" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="txtSueldo" prefHeight="26.0" prefWidth="162.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="Sueldo" textFill="WHITE" GridPane.rowIndex="6" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="370.0" layoutY="173.0" prefHeight="30.0" prefWidth="291.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="btnAnterior" mnemonicParsing="false" onAction="#btnAnteriorAccion" styleClass="buttonNavegacion" text="&lt;&lt;&lt;" />
+            <Button fx:id="btnSiguiente" mnemonicParsing="false" onAction="#btnSiguienteAccion" styleClass="buttonNavegacion" text="&gt;&gt;&gt;" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <Button layoutX="1085.0" layoutY="24.0" mnemonicParsing="false" onAction="#refrescarLIsta" text="Refrescar" />
+   </children>
+   <styleClass>
+      <String fx:value="mainFxmlClass" />
+      <String fx:value="anchor-pane" />
+   </styleClass>
+</AnchorPane>

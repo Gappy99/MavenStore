@@ -13,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.kevinramirez.database.Conexion;
+import org.kevinramirez.model.Cliente;
 import org.kevinramirez.system.Main;
 
 /**
@@ -60,12 +61,21 @@ public class InicioController implements Initializable {
 
             if (resultado.next()) {
                 // Acceso exitoso
-               principal.mostrarMenuPrincipal();
+                Cliente cliente = new Cliente(
+                    resultado.getInt("idCliente"),
+                    resultado.getString("nombreCliente"),
+                    resultado.getString("apellidoCliente"),
+                    resultado.getString("nitCliente"),
+                    resultado.getString("correoCliente"));
+                
+                 principal.setClienteActual(cliente); 
+                 principal.mostrarMenuPrincipal();
+                
             } else {
                 mostrarAlerta("Acceso Denegado", "Correo o contraseña incorrectos.");
             }
 
-        } catch (Exception e) {
+        } catch (Exception e) {     
             e.printStackTrace();
             mostrarAlerta("Error", "No se pudo verificar el usuario.");
         }
