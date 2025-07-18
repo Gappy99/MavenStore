@@ -5,18 +5,22 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="728.0" prefWidth="937.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.kevinramirez.controller.DetallePedidoController">
+<AnchorPane id="AnchorPane" prefHeight="728.0" prefWidth="937.0" 
+    style="-fx-background-color: #2196F3;"
+    styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" 
+    fx:controller="org.kevinramirez.controller.DetallePedidoController">
     <stylesheets>
         <URL value="@/styles/detallepedidoview.css" />
     </stylesheets>
    <children>
-      <TableView fx:id="tablaDetallePedido" layoutX="168.0" layoutY="75.0" prefHeight="485.0" prefWidth="651.0">
+      <TableView fx:id="tablaDetallePedido" layoutX="168.0" layoutY="75.0" prefHeight="485.0" prefWidth="651.0"
+         style="-fx-border-color: #0D47A1; -fx-border-width: 3; -fx-background-radius: 10;">
         <columns>
           <TableColumn fx:id="colIdDetalle" prefWidth="75.0" text="DetallePedido" />
           <TableColumn fx:id="colIdPedido" prefWidth="75.0" text="Pedido" />
-            <TableColumn fx:id="colIdComida" prefWidth="75.0" text="Comida" />
-            <TableColumn fx:id="colIdBebida" prefWidth="75.0" text="Bebida" />
-            <TableColumn fx:id="colCantidad" prefWidth="75.0" text="cantidad" />
+          <TableColumn fx:id="colIdComida" prefWidth="75.0" text="Comida" />
+          <TableColumn fx:id="colIdBebida" prefWidth="75.0" text="Bebida" />
+          <TableColumn fx:id="colCantidad" prefWidth="75.0" text="cantidad" />
         </columns>
       </TableView>
    </children>

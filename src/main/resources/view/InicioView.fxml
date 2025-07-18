@@ -8,23 +8,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kevinramirez.controller.InicioController">
-    <stylesheets>
-        <URL value="@inicioview.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" 
+    style="-fx-background-color: #2196F3;" 
+    xmlns="http://javafx.com/javafx/23.0.1" 
+    xmlns:fx="http://javafx.com/fxml/1" 
+    fx:controller="org.kevinramirez.controller.InicioController">
+
    <children>
       <Label layoutX="197.0" layoutY="67.0" text="Ingrese un correo">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCorreo" layoutX="196.0" layoutY="112.0" prefHeight="26.0" prefWidth="182.0" />
+      <TextField fx:id="txtCorreo" layoutX="196.0" layoutY="112.0" prefHeight="26.0" prefWidth="182.0" 
+          style="-fx-background-color: #E3F2FD; -fx-border-color: white; -fx-border-width: 2px;" />
       <Label layoutX="182.0" layoutY="186.0" text="Ingrese una contraseña ">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Button layoutX="182.0" layoutY="284.0" mnemonicParsing="false" onAction="#clicIngresar" prefHeight="32.0" prefWidth="75.0" text="Ingresar" />
-      <PasswordField fx:id="txtContrasena" layoutX="196.0" layoutY="228.0" />
+      <PasswordField fx:id="txtContrasena" layoutX="196.0" layoutY="228.0" 
+          style="-fx-background-color: #E3F2FD; -fx-border-color: white; -fx-border-width: 2px;" />
+      <Button layoutX="182.0" layoutY="284.0" mnemonicParsing="false" onAction="#clicIngresar" 
+              prefHeight="32.0" prefWidth="75.0" text="Ingresar" 
+              style="-fx-background-color: #FFEB3B; -fx-text-fill: black;" />
    </children>
 </AnchorPane>

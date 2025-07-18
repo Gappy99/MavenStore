@@ -6,24 +6,26 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="511.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.kevinramirez.controller.RegistroController">
+<AnchorPane id="AnchorPane" prefHeight="511.0" prefWidth="600.0" style="-fx-background-color: #2196F3;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kevinramirez.controller.RegistroController">
     <stylesheets>
         <URL value="@/styles/registroview.css" />
     </stylesheets>
    <children>
-      <Label layoutX="96.0" layoutY="43.0" text="Nombre" />
-      <Label layoutX="96.0" layoutY="119.0" text="Apellido" />
-      <Label layoutX="96.0" layoutY="191.0" text="numero de nit" />
-      <Label layoutX="99.0" layoutY="271.0" text="Correo" />
-      <Label layoutX="89.0" layoutY="347.0" text="contrasena" />
-      <Label layoutX="85.0" layoutY="423.0" text="numero de telefono" />
-      <TextField fx:id="txtNombre" layoutX="85.0" layoutY="69.0" />
-      <TextField fx:id="txtApellido" layoutX="86.0" layoutY="137.0" />
-      <TextField fx:id="txtNit" layoutX="86.0" layoutY="209.0" />
-      <TextField fx:id="txtCorreo" layoutX="87.0" layoutY="289.0" />
-      <TextField fx:id="txtPassword" layoutX="88.0" layoutY="365.0" />
-      <TextField fx:id="txtTelefono" layoutX="86.0" layoutY="447.0" />
-      <Button fx:id="btnRegistrarme" layoutX="377.0" layoutY="162.0" mnemonicParsing="false" onAction="#registrarCliente" prefHeight="75.0" prefWidth="106.0" text="Registrarme" />
-      <Button layoutX="384.0" layoutY="378.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="91.0" text="Regresar" />
+      <Label layoutX="86.0" layoutY="50.0" text="Nombre" textFill="WHITE" />
+      <Label layoutX="86.0" layoutY="119.0" text="Apellido" textFill="WHITE" />
+      <Label layoutX="87.0" layoutY="191.0" text="Numero de nit" textFill="WHITE" />
+      <Label layoutX="88.0" layoutY="271.0" text="Correo" textFill="WHITE" />
+      <Label layoutX="89.0" layoutY="347.0" text="Contrasena" textFill="WHITE" />
+      <Label layoutX="85.0" layoutY="423.0" text="Numero de Telefono" textFill="WHITE" />
+
+      <TextField fx:id="txtNombre" layoutX="85.0" layoutY="69.0" style="-fx-background-color: #E3F2FD; -fx-border-color: white; -fx-border-width: 2px;" />
+      <TextField fx:id="txtApellido" layoutX="86.0" layoutY="137.0" style="-fx-background-color: #E3F2FD; -fx-border-color: white; -fx-border-width: 2px;" />
+      <TextField fx:id="txtNit" layoutX="86.0" layoutY="209.0" style="-fx-background-color: #E3F2FD; -fx-border-color: white; -fx-border-width: 2px;" />
+      <TextField fx:id="txtCorreo" layoutX="87.0" layoutY="289.0" style="-fx-background-color: #E3F2FD; -fx-border-color: white; -fx-border-width: 2px;" />
+      <TextField fx:id="txtPassword" layoutX="88.0" layoutY="365.0" style="-fx-background-color: #E3F2FD; -fx-border-color: white; -fx-border-width: 2px;" />
+      <TextField fx:id="txtTelefono" layoutX="86.0" layoutY="447.0" style="-fx-background-color: #E3F2FD; -fx-border-color: white; -fx-border-width: 2px;" />
+
+      <Button fx:id="btnRegistrarme" layoutX="377.0" layoutY="162.0" mnemonicParsing="false" onAction="#registrarCliente" prefHeight="75.0" prefWidth="106.0" style="-fx-background-color: #FFEB3B; -fx-text-fill: black;" text="Registrarme" />
+      <Button layoutX="384.0" layoutY="378.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="91.0" style="-fx-background-color: #FFEB3B; -fx-text-fill: black;" text="Regresar" />
    </children>
 </AnchorPane>

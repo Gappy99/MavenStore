@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.kevinramirez.controller.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2196F3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kevinramirez.controller.LoginController">
     <stylesheets>
         <URL value="@/styles/loginview.css" />
     </stylesheets>
-   <children>
-      <Label layoutX="157.0" layoutY="76.0" text="Bienvenido a Store">
-         <font>
-            <Font name="System Bold Italic" size="29.0" />
-         </font>
-      </Label>
-      <Button fx:id="btninicio" layoutX="242.0" layoutY="142.0" mnemonicParsing="false" onAction="#ingresoA" prefHeight="74.0" prefWidth="116.0" text="Iniciar Sesion" />
-      <Button fx:id="btnRegistro" layoutX="242.0" layoutY="257.0" mnemonicParsing="false" onAction="#ingresoA" prefHeight="74.0" prefWidth="116.0" text="Registrarse" />
-   </children>
+    
+    <children>
+        <Label layoutX="195.0" layoutY="67.0" style="-fx-text-fill: white; -fx-font-size: 29px; -fx-font-weight: bold; -fx-font-style: italic;" text="Bienvenido a Store" />
+        <Button fx:id="btninicio" layoutX="242.0" layoutY="142.0" mnemonicParsing="false" onAction="#ingresoA" prefHeight="74.0" prefWidth="160.0" style="-fx-background-color: #FFEB3B; -fx-text-fill: black; -fx-font-weight: bold;-fx-font-size: 16px; -fx-background-radius: 10; -fx-cursor: hand;" text="Iniciar Sesión" />
+        <Button fx:id="btnRegistro" layoutX="242.0" layoutY="257.0" mnemonicParsing="false" onAction="#ingresoA" prefHeight="74.0" prefWidth="160.0" style="-fx-background-color: #FFEB3B; -fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 16px; -fx-background-radius: 10; -fx-cursor: hand;" text="Registrarse" />
+    </children>
 </AnchorPane>
