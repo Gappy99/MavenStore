@@ -5,25 +5,40 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.kevinramirez.controller.DetallePedidoController;
+import org.kevinramirez.controller.EmpleadoController;
 import org.kevinramirez.controller.InicioController;
 import org.kevinramirez.controller.LoginController;
 import org.kevinramirez.controller.MenuPrincipalController;
 import org.kevinramirez.controller.PedidoController;
 import org.kevinramirez.controller.RegistroController;
+import org.kevinramirez.model.Cliente;
 
 public class Main extends Application {
 
    private Stage escenarioPrincipal;
+   
+   private Cliente clienteActual;
+
+    // ✅ Método para asignar cliente actual
+    public void setClienteActual(Cliente cliente) {
+        this.clienteActual = cliente;
+    }
+
+    public Cliente getClienteActual() {
+        return this.clienteActual;
+    }
 
     @Override
     public void start(Stage stage) {
         this.escenarioPrincipal = stage;
-        mostrarDetallePedidos();
+        // mostrarDetallePedidos();
+        // mostrarEmpleados();
         // mostrarPedidos();
         // mostrarMenuPrincipal();
         mostrarLogin();
     }
-
+    
+    
     public void mostrarLogin() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/LoginView.fxml"));
@@ -86,10 +101,10 @@ public class Main extends Application {
             escenarioPrincipal.setScene(escena);
             escenarioPrincipal.setTitle("Registrarse ");
             escenarioPrincipal.show();
-
-            // Comunicación con el controlador de Inicio
+            
             MenuPrincipalController controlador = loader.getController();
             controlador.setPrincipal(this);
+            controlador.setClienteActual(clienteActual);
 
         } catch (Exception e) {
             System.err.println("Error al cargar la vista RegistroView.fxml:");
@@ -129,6 +144,24 @@ public class Main extends Application {
 
         } catch (Exception e) {
             System.err.println("Error al cargar la vista DetallePedidosView.fxml:");
+            e.printStackTrace();
+        }
+    }
+    
+     public void mostrarEmpleados() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/EmpleadoView.fxml"));
+            Scene escena = new Scene(loader.load());
+            escenarioPrincipal.setScene(escena);
+            escenarioPrincipal.setTitle("Registrarse ");
+            escenarioPrincipal.show();
+
+            // Comunicación con el controlador de Inicio
+            EmpleadoController controlador = loader.getController();
+            controlador.setPrincipal(this);
+
+        } catch (Exception e) {
+            System.err.println("Error al cargar la vista EmpleadoView.fxml:");
             e.printStackTrace();
         }
     }

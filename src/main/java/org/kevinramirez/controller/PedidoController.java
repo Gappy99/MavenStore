@@ -18,6 +18,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.kevinramirez.database.Conexion;
+import org.kevinramirez.model.Cliente;
 import org.kevinramirez.model.Pedido;
 import org.kevinramirez.system.Main;
 
@@ -27,7 +28,7 @@ import org.kevinramirez.system.Main;
  * @author edy14
  */
 public class PedidoController implements Initializable {
- @FXML private TableView<Pedido> tablaPedidos;
+   @FXML private TableView<Pedido> tablaPedidos;
  
    @FXML private TableColumn colIdPedido, colCliente, colEmpleado, colFecha, colMetodoPago, colEstadoFactura ; 
 
