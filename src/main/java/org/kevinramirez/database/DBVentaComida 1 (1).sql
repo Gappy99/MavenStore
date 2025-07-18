@@ -1,4 +1,4 @@
-	drop database if exists DBrestaurante;
+	-- drop database if exists DBrestaurante;
 	create database DBrestaurante;
 	use DBrestaurante;
 
