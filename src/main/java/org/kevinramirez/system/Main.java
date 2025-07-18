@@ -113,7 +113,7 @@ public class Main extends Application {
             controlador.setClienteActual(clienteActual);
 
         } catch (Exception e) {
-            System.err.println("Error al cargar la vista RegistroView.fxml:");
+            System.err.println("Error al cargar la vista MenuPrincipal.fxml:");
             e.printStackTrace();
         }
     }

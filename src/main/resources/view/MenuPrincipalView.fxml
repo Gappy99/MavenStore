@@ -14,7 +14,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<<<<<<< HEAD
 <BorderPane prefHeight="602.0" prefWidth="1162.0" 
             style="-fx-background-color: #1976D2;" 
             xmlns="http://javafx.com/javafx/23.0.1" 
