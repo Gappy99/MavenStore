@@ -82,6 +82,11 @@ public class Empleado {
     public void setSueldoEmpleado(double sueldoEmpleado) {
         this.sueldoEmpleado = sueldoEmpleado;
     }
+
+    @Override
+    public String toString() {
+        return idEmpleado + " | " + nombreEmpleado + " | " + apellidoEmpleado;
+    }
     
     
 }

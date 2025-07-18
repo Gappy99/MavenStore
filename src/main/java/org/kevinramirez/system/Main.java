@@ -4,6 +4,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.kevinramirez.controller.BebidaController;
+import org.kevinramirez.controller.ClienteController;
+import org.kevinramirez.controller.ComidaController;
 import org.kevinramirez.controller.DetallePedidoController;
 import org.kevinramirez.controller.EmpleadoController;
 import org.kevinramirez.controller.InicioController;
@@ -19,7 +22,7 @@ public class Main extends Application {
    
    private Cliente clienteActual;
 
-    // ✅ Método para asignar cliente actual
+    
     public void setClienteActual(Cliente cliente) {
         this.clienteActual = cliente;
     }
@@ -31,10 +34,13 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         this.escenarioPrincipal = stage;
+        //mostrarBebida();
+        //mostrarComida();
+        //mostrarClientes();
         // mostrarDetallePedidos();
         // mostrarEmpleados();
         // mostrarPedidos();
-        // mostrarMenuPrincipal();
+        //mostrarMenuPrincipal();
         mostrarLogin();
     }
     
@@ -162,6 +168,57 @@ public class Main extends Application {
 
         } catch (Exception e) {
             System.err.println("Error al cargar la vista EmpleadoView.fxml:");
+            e.printStackTrace();
+        }
+    }
+     
+     public void mostrarClientes() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ClienteView.fxml"));
+            Scene escena = new Scene(loader.load());
+            escenarioPrincipal.setScene(escena);
+            escenarioPrincipal.setTitle("Registrarse ");
+            escenarioPrincipal.show();
+
+            ClienteController controlador = loader.getController();
+            controlador.setPrincipal(this);
+
+        } catch (Exception e) {
+            System.err.println("Error al cargar la vista ClienteView.fxml:");
+            e.printStackTrace();
+        }
+    }
+     
+     public void mostrarComida() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ComidaView.fxml"));
+            Scene escena = new Scene(loader.load());
+            escenarioPrincipal.setScene(escena);
+            escenarioPrincipal.setTitle("Registrarse ");
+            escenarioPrincipal.show();
+
+            ComidaController controlador = loader.getController();
+            controlador.setPrincipal(this);
+
+        } catch (Exception e) {
+            System.err.println("Error al cargar la vista ComidaView.fxml:");
+            e.printStackTrace();
+        }
+    }
+     
+     public void mostrarBebida() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/BebidaView.fxml"));
+            Scene escena = new Scene(loader.load());
+            escenarioPrincipal.setScene(escena);
+            escenarioPrincipal.setTitle("Registrarse ");
+            escenarioPrincipal.show();
+
+            BebidaController controlador = loader.getController();
+            controlador.setPrincipal(this);
+
+        } catch (Exception e) {
+            System.err.println("Error al cargar la vista ComidaView.fxml:");
             e.printStackTrace();
         }
     }

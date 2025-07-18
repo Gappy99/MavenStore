@@ -6,13 +6,15 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<<<<<<< HEAD
 <BorderPane prefHeight="602.0" prefWidth="1162.0" 
             style="-fx-background-color: #1976D2;" 
             xmlns="http://javafx.com/javafx/23.0.1" 
@@ -32,6 +34,52 @@
             <children>
                 <VBox alignment="TOP_CENTER" layoutX="43.0" layoutY="48.0" prefHeight="402.0" prefWidth="368.0" spacing="10.0">
                     <padding>
+=======
+<BorderPane prefHeight="602.0" prefWidth="1162.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kevinramirez.controller.MenuPrincipalController">
+   <center>
+      <AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="442.0" styleClass="mainFxmlClass">
+          <stylesheets>
+              <URL value="@/styles/menuprincipalview.css" />
+          </stylesheets>
+         <children>
+            <VBox alignment="TOP_CENTER" layoutX="43.0" layoutY="48.0" prefHeight="402.0" prefWidth="368.0" spacing="10.0">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <children>
+                  <Label text="Carrito" />
+                  <ListView fx:id="listCarrito" prefHeight="400.0" prefWidth="400.0" />
+                  <Label text="Total a pagar" />
+                  <Label fx:id="lblTotal" text="Q. 00" />
+                  <Button mnemonicParsing="false" onAction="#realizarPedido" text="Realizar Pedido" />
+                  <ComboBox fx:id="cmbEmpleado" prefHeight="26.0" prefWidth="174.0" promptText="Seleccionar Empleado" />
+                  <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                     <children>
+                        <RadioButton fx:id="rbEfectivo" mnemonicParsing="false" selected="true" text="Efectivo">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="MetodoPago" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rbTarjeta" mnemonicParsing="false" text="Tarjeta" toggleGroup="$MetodoPago" />
+                        <!--<RadioButton fx:id="rbEfectivo" mnemonicParsing="false" selected="true" text="Tarjeta" toggleGroup="$MetodoPago" />-->
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <Label prefHeight="52.0" prefWidth="116.0" text="Menu del dia" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <ScrollPane prefHeight="550.0" prefWidth="708.0" BorderPane.alignment="CENTER">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="547.0" prefWidth="643.0">
+               <children>
+                  <VBox layoutX="165.0" prefHeight="532.0" prefWidth="418.0" spacing="10.0">
+                     <padding>
+>>>>>>> ft/eddy
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                     </padding>
                     <children>
